@@ -55,7 +55,7 @@ public class VulnerableTaskHolder implements Serializable {
         && (requestedExecutionTime.isBefore(LocalDateTime.now().minusMinutes(10))
             || requestedExecutionTime.isAfter(LocalDateTime.now()))) {
       // do nothing is the time is not within 10 minutes after the object has been created
-      log.debug(this.toString());
+      log.error(this.toString());
       throw new IllegalArgumentException("outdated");
     }
 
